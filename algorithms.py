@@ -131,7 +131,7 @@ def cari_id(data, id_panen):
     # index
     kiri = 0
     kanan = len(terurut) - 1
-    
+
     while kiri <= kanan:
         tengah = (kiri + kanan) // 2
         id_tengah = terurut[tengah]["id"]
