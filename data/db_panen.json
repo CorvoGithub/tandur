@@ -1,0 +1,35 @@
+[
+  {
+    "id": "PN-11-001",
+    "tanggal": "2026-11-22",
+    "nama": "Tai Bai Yun Sheng",
+    "komoditas": "Padi",
+    "berat": 10.0,
+    "harga_per_kg": 50000,
+    "total": 500000,
+    "bagian_petani": 350000,
+    "bagian_kas": 150000
+  },
+  {
+    "id": "PN-11-002",
+    "tanggal": "2026-11-21",
+    "nama": "Tao Zhu",
+    "komoditas": "Kapas",
+    "berat": 12.0,
+    "harga_per_kg": 35000,
+    "total": 420000,
+    "bagian_petani": 294000,
+    "bagian_kas": 126000
+  },
+  {
+    "id": "PN-11-003",
+    "tanggal": "2026-11-20",
+    "nama": "He Feng Yang",
+    "komoditas": "Jagung",
+    "berat": 3.0,
+    "harga_per_kg": 100000,
+    "total": 300000,
+    "bagian_petani": 210000,
+    "bagian_kas": 90000
+  }
+]
