@@ -1,0 +1,13 @@
+Pembagian Tugas Kelompok (Jobdesk)
+
+Andhika (algorithms.py)
+    -- Merancang logika perhitungan bagi hasil (70% petani, 30% kas kelompok) dan pembuatan ID transaksi otomatis.
+    -- Mengimplementasikan algoritma pencarian (binary search & linear search), pengurutan data (quick sort), serta kalkulasi statistik.
+
+Maira (main.py, ui_formatter.py)
+    --Membangun alur utama program dan sistem validasi input agar program aman dari kesalahan ketik pengguna.
+    --Merancang antarmuka terminal (warna ANSI, tabel, grafik batang, ASCII art, dan animasi).
+
+Raya (file_handler.py)
+    --Mengelola penyimpanan dan pembacaan database lokal menggunakan JSON (data/db_panen.json) beserta fitur cadangan otomatis (backup).
+    --Membuat sistem validasi struktur data dan fitur pencetakan struk transaksi ke file .txt.
