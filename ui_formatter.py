@@ -55,23 +55,32 @@ KOLOM_TABEL = (
 )
 
 LOGO = (
-    r" _____     _     _   _  ____   _   _  ____",
-    r"|_   _|   / \   | \ | ||  _ \ | | | ||  _ \ ",
-    r"  | |    / _ \  |  \| || | | || | | || |_) |",
-    r"  | |   / ___ \ | |\  || |_| || |_| ||  _ <",
-    r"  |_|  /_/   \_\|_| \_||____/  \___/ |_| \_\ ",
+    r"""ooooooooooooo                             .o8                      """,
+    r"""8'   888   `8                            "888                      """,
+    r"""     888       .oooo.   ooo. .oo.    .oooo888  oooo  oooo  oooo d8b""",
+    r"""     888      `P  )88b  `888P"Y88b  d88' `888  `888  `888  `888""8P""",
+    r"""     888       .oP"888   888   888  888   888   888   888   888    """,
+    r"""     888      d8(  888   888   888  888   888   888   888   888    """,
+    r"""    o888o     `Y888""8o o888o o888o `Y8bod88P"  `V88V"V8P' d888b   """,
 )
 
 TUNAS = (
-    (HIJAU, r"   ,_   _,   "),
-    (HIJAU, r"  (_ \ / _)  "),
-    (HIJAU, r"    \_|_/    "),
-    (HIJAU, r"      |      "),
-    (HIJAU, r"      |      "),
+    (TEBAL + HIJAU, "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣄⠀⠀⠀⠀⠀⠀⠀"),
+    (TEBAL + HIJAU, "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣴⢿⣟⡆⠀⠀⠀⠀⠀⠀"),
+    (TEBAL + HIJAU, "⣀⣤⣤⣤⣤⣤⣀⠀⠀⠀⢸⣇⣿⣿⡇⣀⠀⠀⠀⠀⠀"),
+    (TEBAL + HIJAU, "⠹⢿⣿⣿⣷⣦⣎⢲⡀⠀⢸⣿⣿⣏⣿⠏⠀⠀⠀⠀⠀"),
+    (HIJAU,         "⠀⠀⠙⢿⣿⣿⡿⣿⣿⡀⢸⣧⣿⣿⣿⢶⣶⣔⣦⢤⣀"),
+    (HIJAU,         "⠀⠀⠀⠀⠙⢿⣿⣻⣿⢃⣾⢋⣿⣿⣿⣿⣿⣿⣟⡿⠋"),
+    (HIJAU,         "⠀⠀⠀⠀⠀⠀⠈⠉⠹⣿⣻⡿⠿⠿⠿⡿⠿⠛⠋⠀⠀"),
+    (HIJAU,         "⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⡏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"),
+    (HIJAU,         "⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"),
+    (HIJAU,         "⠀⠀⠀⠀⠀⠀⠀⠀⣸⣿⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀"),
 )
+
 TANAH = (
-    (COKELAT, "▄▄▄▄▄▄▄▄▄▄▄▄▄"),
-    (COKELAT, "█████████████"),
+    (COKELAT,       "⠀⠀⠀⠀⠀⢀⣴⣿⣿⣿⣿⣿⣶⣄⠀⠀⠀⠀⠀⠀⠀"),
+    (COKELAT,       "⠀⠀⣠⣴⣶⣿⣿⣿⣿⣽⡏⣛⣿⡿⣷⣤⣄⠀⠀⠀⠀"),
+    (COKELAT,       "⠀⠈⠛⠻⠿⢿⣿⣿⣿⣼⣧⣿⣿⣧⣷⠾⠿⠇⠀⠀⠀"),
 )
 
 
@@ -263,14 +272,16 @@ def progress(pesan, durasi=1.0, lebar_bar=30):
         sys.stdout.flush()
         time.sleep(durasi / lebar_bar)
     sys.stdout.write("\n")
+    sys.stdout.flush()
 
 
 def gambar_tanaman(tumbuh):
     # tumbuh = jumlah baris tunas yang sudah muncul (dihitung dari bawah)
     indent = " " * ((LEBAR - len(TANAH[0][1])) // 2)
     hasil = []
+    tinggi = len(TUNAS)
     for i, (kode, teks) in enumerate(TUNAS):
-        if i >= len(TUNAS) - tumbuh:
+        if i >= tinggi - tumbuh:
             hasil.append(kode + indent + teks + RESET)
         else:
             hasil.append("")
@@ -288,7 +299,8 @@ def animasi_tumbuh():
         print("\n".join(b + "\033[K" for b in gambar_tanaman(tumbuh)))
         if tumbuh < len(TUNAS):
             sys.stdout.write("\033[" + str(tinggi) + "A")
-        time.sleep(0.15)
+            sys.stdout.flush()
+        time.sleep(0.14)
 
 
 def splash():
@@ -310,7 +322,7 @@ def animasi_keluar():
     print()
     print("\n".join(gambar_tanaman(len(TUNAS))))
     print()
-    ketik(tengah("Terima kasih sudah menggunakan Tandur!"), TEBAL + HIJAU)
+    ketik(tengah("Terima kasih sudah menggunakan Aplikasi Tandur!"), TEBAL + HIJAU)
     ketik(tengah("Sampai jumpa kembali"), KUNING)
     print()
 
